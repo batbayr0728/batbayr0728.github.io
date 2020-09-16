@@ -1,0 +1,83 @@
+<p class="pp">Stopwatch</p>
+<div id="myId">00:00:00</div>
+<button onclick="myFunction()">Start</button>
+<button onclick="reset()">Reset</button>
+<button onclick="lap()" disabled id="id">lap</button>
+<div class="lap" id="laps"></div>
+	<script>
+		var tsag = document.querySelector("#myId")
+		var stopStart = document.querySelector("button")
+		var doli = 0
+		var secund = 0
+		var minute = 0
+		var dolis
+		var secunds
+		var minutes
+		var paused = true
+		var intervalId 
+		var lapuud = document.querySelector("#laps")
+		var towchluur = document.getElementById("id")
+		function myFunction(){
+			if(paused){
+				stopStart.innerHTML = "Stop"
+				intervalId = setInterval(startStop,10)
+				towchluur.disabled = false
+			}
+			else{
+				stopStart.innerHTML = "Start"
+				clearInterval(intervalId)
+				towchluur.disabled = true
+			}
+			paused = !paused
+		}
+		function startStop(){
+				doli++
+			if(doli == 100){
+				secund++
+				doli = 0
+			}
+			if(secund==60){
+				minute++
+				secund = 0
+			}
+			if(doli<10){
+				dolis = "0"+doli
+			}
+			else{
+				dolis = doli
+			}
+			if(secund<10){
+				secunds = "0"+secund
+			}
+			else{
+				secunds = secund
+			}
+			if(minute<10){
+				minutes = "0"+ minute
+			}
+			else{
+				minutes = minute
+			}
+			tsag.innerHTML = minutes + ":" + secunds + ":" + dolis
+		}
+		function reset(){
+			tsag.innerHTML = "00:00:00"
+			doli = 0
+			secund = 0
+			minute = 0
+			if(!paused){
+				myFunction()
+			}
+			lapuud.innerHTML= " ";
+			myNumber = 1
+		}
+		var myNumber = 1
+		function lap(){
+			var number = document.createElement("div")
+			var time = document.createElement("div")
+			number.innerHTML = myNumber
+			time.innerHTML = minutes + ":" + secunds + ":" + dolis
+			lapuud.append(number,time)
+			myNumber++
+		}
+	</script>
