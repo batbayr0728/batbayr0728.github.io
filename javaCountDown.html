@@ -1,0 +1,61 @@
+<html>
+<head>
+	<style>
+		body{
+			margin: 200px;
+		}
+		.tom{
+			width:500px;
+			height:500px;
+			background-color: blue;
+		}
+		.input{
+			margin:20px;
+		}
+	</style>
+</head>
+<body>
+<div class="tom">
+<div id="countdown"></div>
+<div id="notifier"></div>
+<input type="text" id="userTime" />
+<input type="button" value="ehluuleh" onclick="startTimer()" />
+</div>
+<script type="text/javascript">
+	function startTimer() {
+	  userInput = document.getElementById('userTime').value;
+		if(userInput.length == 0){
+			alert("Please enter a value");
+		} else {
+		var numericExpression = /^[0-9]+$/;
+		if(!userInput.match(numericExpression)){
+		alert("zowhon tool oruul")
+		} else {
+
+	   function display( notifier, str ) {
+		document.getElementById(notifier).innerHTML = str;
+	  }
+			
+	  function toMinuteAndSecond( x ) {
+		return Math.floor(x/60) + ":" + x%60;
+	  }
+			
+	  function setTimer( remain, actions ) {
+		(function countdown() {
+		   display("countdown", toMinuteAndSecond(remain));         
+		   actions[remain] && actions[remain]();
+		   (remain -= 1) >= 0 && setTimeout(arguments.callee, 1000);
+		})();
+	  }
+
+	  setTimer(userInput, {
+		10: function () { display("notifier", "10 second uldlee"); },
+		 5: function () { display("notifier", "5 second uldlee");        },
+		 0: function () { display("notifier", "Tsag duuslaa");       }
+	  }); 
+	}  
+	}
+	}
+</script>
+</body>
+</html>
