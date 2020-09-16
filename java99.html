@@ -1,0 +1,73 @@
+<html>
+<head>
+	<style>
+		div{
+			background-color:#ee1ee1;
+			width:300px;
+			height:300px;
+			margin:0 10px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div id="a"></div>
+	<div id="a2"></div>
+	<div id="a3"></div>
+	<button onclick="clickConter()">click me</button> 
+	<button onclick="clickConter2()">click me2</button> 
+	<button onclick="clickConter3()">click me3</button> 
+	<script>
+		var count = 0
+		function clickConter(){
+			if(count==0){
+				document.getElementById("a").style.backgroundColor="#000"
+			}
+			else if(count==1){
+				document.getElementById("a").style.backgroundColor="#e1e1e1"
+			}
+			else if (count==2){
+				document.getElementById("a").style.backgroundColor="#ff0000"
+			}
+			else{
+				document.getElementById("a").style.backgroundColor="#ee1ee1"
+				count=-1
+			}
+			count++
+		}
+		var count = 0
+		function clickConter2(){
+			if(count==0){
+				document.getElementById("a2").style.visibility="hidden"
+			}
+			else if(count==1){
+				document.getElementById("a2").style.backgroundColor="#e1e1e1"
+			}
+			else if (count==2){
+				document.getElementById("a2").style.backgroundColor="#ff0000"
+			}
+			else{
+				document.getElementById("a2").style.backgroundColor="#ee1ee1"
+				count=-1
+			}
+			count++
+		}var count = 0
+		function clickConter3(){
+			if(count==0){
+				document.getElementById("a3").style.backgroundColor="#000"
+			}
+			else if(count==1){
+				document.getElementById("a3").style.backgroundColor="#e1e1e1"
+			}
+			else if (count==2){
+				document.getElementById("a3").style.backgroundColor="#ff0000"
+			}
+			else{
+				document.getElementById("a3").style.backgroundColor="#ee1ee1"
+				count=-1
+			}
+			count++
+		}
+	</script>
+</body>
+</html>

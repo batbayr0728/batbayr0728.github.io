@@ -1,0 +1,36 @@
+<html>
+<body>
+	<style>
+		button{
+			margin:10 30px;
+		}
+	</style>
+<button onclick="clickConter()">change color</button> 
+<input ></input>
+<button onclick="clickConter1()">add color</button> 
+
+<script>
+	var myColors=["green","red","black","grey"]
+	var body=document.body
+	body.style.backgroundColor="#ee1ee1"
+	var x = 0
+	setInterval(myIntervalFunction,1000)
+	function myIntervalFunction(){
+			document.body.style.backgroundColor= myColors[x]
+			x++
+			console.log(x)
+			if(x==myColors.length){
+				x=0
+			}
+			
+	}
+	function clickConter1(){
+		var x=prompt()
+		myColors.push(x)
+	}
+	function togglePause(){
+		
+	}
+</script>
+</body>
+</html>
